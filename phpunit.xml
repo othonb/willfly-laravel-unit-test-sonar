@@ -2,8 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         colors="true"
->
+         colors="true">
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
@@ -17,6 +16,15 @@
             <directory suffix=".php">./app</directory>
         </whitelist>
     </filter>
+    <logging>
+        <log type="coverage-html" target="./storage/logs/report" lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-clover" target="./storage/logs/coverage.xml"/>
+        <log type="coverage-php" target="./storage/logs/coverage.serialized"/>
+        <log type="coverage-text" target="./storage/logs/coverage.txt" showUncoveredFiles="false"/>
+        <log type="junit" target="./storage/logs/logfile.xml"/>
+        <log type="testdox-html" target="./storage/logs/testdox.html"/>
+        <log type="testdox-text" target="./storage/logs/testdox.txt"/>
+    </logging>
     <php>
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
